@@ -1,11 +1,17 @@
+"""Модели для приложения posts."""
+
 from django.contrib.auth import get_user_model
 from django.db import models
 
 User = get_user_model()
 
+MAX_GROUP_TITLE_LENGTH = 200
+
 
 class Group(models.Model):
-    title = models.CharField(max_length=200)
+    """Модель группы."""
+
+    title = models.CharField(max_length=MAX_GROUP_TITLE_LENGTH)
     slug = models.SlugField(unique=True)
     description = models.TextField()
 
@@ -14,6 +20,8 @@ class Group(models.Model):
 
 
 class Post(models.Model):
+    """Модель поста."""
+
     text = models.TextField()
     pub_date = models.DateTimeField(
         'Дата публикации', auto_now_add=True
@@ -34,6 +42,8 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
+    """Модель комментария."""
+
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='comments'
     )
