@@ -18,7 +18,7 @@ class Group(models.Model):
     def __str__(self):
         """Название группы."""
         return self.title
-    
+
     class Meta:
         verbose_name = 'Группа'
         verbose_name_plural = 'Группы'
@@ -45,7 +45,7 @@ class Post(models.Model):
     def __str__(self):
         """Текст поста."""
         return self.text
-    
+
     class Meta:
         verbose_name = 'Пост'
         verbose_name_plural = 'Посты'
@@ -65,11 +65,11 @@ class Comment(models.Model):
     created = models.DateTimeField(
         'Дата добавления', auto_now_add=True, db_index=True
     )
-    
+
     def __str__(self):
         """Текст комментария."""
         return self.text
-    
+
     class Meta:
         verbose_name = 'Комментарий'
         verbose_name_plural = 'Комментарии'
